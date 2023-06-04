@@ -10,7 +10,7 @@ app.use(router);
 // Inicie o servidor
 app.listen({
   host: '0.0.0.0',
-  port : process.ENV.PORT || 5500
+  port : process.ENV.PORT ? Number(process.env.PORT) : 5500
 }).then(()=>{
   console.log('HTTP Server running')
 });
