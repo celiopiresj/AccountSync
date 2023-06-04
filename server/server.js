@@ -8,6 +8,9 @@ const router = require('./routes.js');
 app.use(router);
 
 // Inicie o servidor
-app.listen(5500, function () {
-  console.log('Servidor iniciado na porta 5500');
+app.listen({
+  host: '0.0.0.0',
+  port : process.ENV.PORT || 5500
+}).then(()=>{
+  console.log('HTTP Server running')
 });

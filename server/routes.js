@@ -11,11 +11,7 @@ router.use('/public', express.static(path.join(__dirname, '..', 'public')));
 
 // Define a rota para o arquivo específico
 
-
 // Define a rota raiz para servir o arquivo "index.html"
 router.use('/', express.static(path.join(__dirname, '..', 'app')));
-
-
-
 
 module.exports = router;
