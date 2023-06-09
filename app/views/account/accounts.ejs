@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Contas Bancárias</title>
+</head>
+<body>
+  <h1>Lista de Contas Bancárias</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% accounts.forEach(function(account) { %>
+        <tr>
+          <td><%= account.id %></td>
+          <td><%= account.name %></td>
+          <td><%= account.balance %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

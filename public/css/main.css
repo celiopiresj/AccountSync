@@ -1,0 +1,21 @@
+html {
+    font-size: 62.5%;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    height: 50px;
+}
+
+p {
+    font-size: 2rem;
+}

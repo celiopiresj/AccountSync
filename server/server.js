@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
+const routes = require('./routes.js');
 
-// Importe o módulo do roteador
-const router = require('./routes.js');
-
-// Use o roteador para tratar as rotas
-app.use(router);
+app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.use(express.json());
+app.use('/', routes);
 
 const port = process.env.PORT ? Number(process.env.PORT) : 5500;
 
 app.listen(port, () => {
-  console.log('HTTP Server running');
+  console.log('HTTP Server running on port ' + port);
 });
