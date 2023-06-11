@@ -1,5 +1,13 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --french-blue: #3083DC;
+    --black-graphite:#303030;
+}
+
 html {
     font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -13,9 +21,14 @@ html, body {
 }
 
 .header {
-    height: 50px;
+    display: flex;
+    align-items: center;
+    height: 5rem; 
+    padding: 1.6rem;
 }
 
-p {
-    font-size: 2rem;
+.header__logo img {
+    width: 22rem;
+    height: auto; 
 }
+
