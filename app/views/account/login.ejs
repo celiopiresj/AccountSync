@@ -2,9 +2,11 @@
 <html lang="pt-BR">
 <head>
   <title>AccountSync</title>
-  <%- include('../head.ejs', { styleCurrent: "/public/css/login.css"}) %>
+  <%- include('../head.ejs', { styleCurrent: "/statics/login/login.css", jsCurrent: "/statics/login/login.js"}) %>
 </head>
 <body>
+  <%- include('../loading.ejs')%>
+  </div>
     <div id="root">
         <div class="header"> 
           <div class="header__logo">
@@ -20,19 +22,25 @@
           <div class="login">
             <h1 class="login__title">Fazer login</h1>
             <form class="login__form">
-              <div class="login__form-group">
-                <label  class="login__form-label" for="username">E-mail</label>
-                <input type="text" autocomplete="username" class="login__form-input" id="username" placeholder="Insira seu e-mail">
+              <div class="login__form-group-input">
+                <label  class="login__form-label" id="labelUser" for="username">Insira seu e-mail</label>
+                <input type="text" autocomplete="username" class="login__form-input" id="username">
               </div>
-              <div class="login__form-group">
-                <label class="login__form-label" for="password">Senha</label>
-                <input type="password" autocomplete="current-password" class="login__form-input" id="password" placeholder="Insira sua senha">
+              <div class="login__form-group-input">
+                <label class="login__form-label" id="labelPassword" for="password">Insira sua senha</label>
+                <input type="password" autocomplete="current-password" class="login__form-input password" id="password">
               </div>
-              <button type="submit" class="login__button">Entrar</button>
+              <div class="login__form-group-checkbox">
+                <input type="checkbox" id="remember-password" name="lembrar-senha">
+                <label for="remember-password">Lembrar senha</label>
+              </div>
+              <button class="login__button disabled" id="loginButton">Entrar</button>
             </form>
           </div>
         </div>
     </div>
+    <script async defer src="https://apis.google.com/js/api.js"></script>
+    <script async defer src="https://accounts.google.com/gsi/client"></script>
 </body>
 </html>
 

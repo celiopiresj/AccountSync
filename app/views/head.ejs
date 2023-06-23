@@ -1,7 +1,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .material-icons{
+        width: 24px;
+        height: 24px;
+        display: flex;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+
+<script>
+    function icons(name,format,nameClass,id){
+
+        const iconFormat = {
+            filled: 'material-icons-filled',
+            outlined: 'material-icons-outlined',
+            round: 'material-icons-round',
+            sharp: 'material-icons-sharp',
+            two_tone: 'material-icons-two_tone',
+        };
+
+        if (!iconFormat[format] || !name) {
+            return $();
+        }
+
+        return $.ajax({
+            url: `/material-icons/${name.toLowerCase()}.svg`,
+            dataType: 'text'
+        })
+            .then(svgString => {
+                const svg =  $(svgString).addClass(`material-icons ${nameClass ? nameClass : iconFormat[format]}`)
+
+                if (id) {
+                    svg.attr('id', id);
+                }
+                return svg;
+            })
+            .fail((jqXHR, textStatus, errorThrown) => {
+                console.error('Ocorreu um erro ao obter o arquivo SVG:', errorThrown);
+                return null;
+            });
+    }
+</script>
+
 <link rel="stylesheet" href="/public/css/main.css">
 <script src="/libs/jquery/jquery.min.js"></script>
 <script src="/public/js/main.js"></script>
 <link rel="icon" type="image/png" href="/public/img/logo/logo-simbolo.png">
-<link rel="stylesheet" href=<%= styleCurrent %>>
+
+<% if (typeof styleCurrent !== 'undefined') { %><link rel="stylesheet" href="<%= styleCurrent %>"><% } %>
+<% if (typeof jsCurrent !== 'undefined') { %><script src="<%= jsCurrent %>"></script><% } %>

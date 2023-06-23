@@ -1,8 +1,12 @@
 :root {
-    --white: #ffffff;
-    --black: #000000;
-    --french-blue: #3083DC;
-    --black-graphite:#303030;
+    --white: 255, 255, 255;
+    --black: 0, 0, 0;
+    --french-blue: 48, 131, 220;
+    --black-graphite: 48, 48, 48;
+    --primary-blue: 0, 123, 255;
+    --deep-cerulean-blue: 2, 87, 176;
+    --error: 179, 38, 30;
+    --dim: 96, 96, 96;
 }
 
 html {
@@ -32,3 +36,53 @@ html, body {
     height: auto; 
 }
 
+
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(var(--white));
+}
+
+.graphic {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 7rem;
+    height: 10rem;
+}
+
+.bar {
+    width: 2rem;
+    background-color:  rgba(var(--french-blue));
+    animation: up-down infinite linear;
+}
+  
+  .bar:nth-child(1) {
+    height: 7rem;
+    animation-duration: 3s;
+  }
+  
+  .bar:nth-child(2) {
+    height:  9rem;
+    animation-duration: 4s;
+  }
+  
+  .bar:nth-child(3) {
+    height:  7rem;
+    animation-duration: 2s;
+  }
+  
+  @keyframes up-down {
+    0%, 100% {
+       height: 0;
+    }
+    50% {
+    height: 9rem;
+    }
+  }
